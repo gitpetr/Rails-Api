@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :load_model, only: [:show, :update, :destroy]
 
   def index
-    render json: @users.order(:username), status: :ok
+    render json: User.order(:username), status: :ok
   end
 
   def create
-    @user = user.create!(user_params)
+    @user = User.create!(user_params)
     render json: @user, status: :created
   end
 
