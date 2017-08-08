@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
+    puts user_params
     render json: @user, status: :created
   end
 
@@ -27,7 +28,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    # whitelist params
     params.require(:user).permit(:username, :email, :password)
   end
 
